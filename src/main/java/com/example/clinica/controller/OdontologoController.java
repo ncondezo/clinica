@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping(path="odontologo")
+@RequestMapping(path="/odontologo")
 public class OdontologoController {
 
    @Autowired

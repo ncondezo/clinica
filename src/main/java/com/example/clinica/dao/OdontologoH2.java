@@ -15,7 +15,6 @@ import java.util.Optional;
 public class OdontologoH2 implements IDao<Odontologo> {
 
     private static final Logger logger= LogManager.getLogger(OdontologoH2.class);
-
     private final static String SELECT_ID="SELECT * FROM ODONTOLOGOS where id = ?";
     private final static String SELECT="SELECT * FROM ODONTOLOGOS";
     private final static String INSERT="INSERT INTO ODONTOLOGOS(APELLIDO, NOMBRE, MATRICULA) VALUES(?, ?, ?)";
