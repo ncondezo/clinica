@@ -9,7 +9,6 @@ import java.util.Optional;
 
 
 
-@Repository
 public interface IDao<T> {
 
     T guardar(T t);

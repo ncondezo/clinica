@@ -17,21 +17,21 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
+@RequestMapping(path="odontologo")
 public class OdontologoController {
 
    @Autowired
     private final OdontologoService odontologoService;
 
 
-
-
-    @GetMapping("/odontologos")
-    public ArrayList<Odontologo> getOdontologos(Model model){
-        return (ArrayList<Odontologo>)odontologoService.listar();
+    @GetMapping
+    @ResponseBody
+    public List<Odontologo> getOdontologos(){
+        return odontologoService.listar();
 
     }
 
-    @PostMapping("/guardar")
+    @PostMapping
     public Odontologo addOdontologo(@RequestBody Odontologo odontologo){
         return odontologoService.guardar(odontologo);
 
