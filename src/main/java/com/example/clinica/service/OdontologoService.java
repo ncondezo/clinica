@@ -9,7 +9,7 @@ public interface OdontologoService {
 
     Odontologo guardar(Odontologo odontologo);
     void eliminar(int id);
-    void modificar(Odontologo odontologo);
+    void modificar(int odontologoId,String apellido,String nombre,String matricula);
     Optional<Odontologo> buscar(int id);
     List<Odontologo> listar();
 }

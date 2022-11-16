@@ -27,9 +27,9 @@ public class OdontologoH2 implements IDao<Odontologo> {
 
             var statement=connection.prepareStatement(INSERT);
 
-            statement.setString(1, odontologo.apellido());
-            statement.setString(2, odontologo.nombre());
-            statement.setString(3,odontologo.matricula());
+            statement.setString(1, odontologo.getApellido());
+            statement.setString(2, odontologo.getNombre());
+            statement.setString(3,odontologo.getMatricula());
             statement.execute();
             logger.debug("Profesional guardado.");
         }catch (SQLException e){
@@ -58,9 +58,10 @@ public class OdontologoH2 implements IDao<Odontologo> {
         try(var connection=H2Connect.getConnection()){
 
             var update=connection.prepareStatement(UPDATE);
-            update.setString(1,odontologo.apellido());
-            update.setString(2,odontologo.nombre());
-            update.setString(3,odontologo.matricula());
+            update.setString(1,odontologo.getApellido());
+            update.setString(2,odontologo.getNombre());
+            update.setString(3,odontologo.getMatricula());
+            update.setInt(4,odontologo.getId());
             update.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
@@ -102,7 +103,7 @@ public class OdontologoH2 implements IDao<Odontologo> {
                 var id=result.getInt(1);
                 var apellido=result.getString(2);
                 var nombre=result.getString(3);
-                var matricula=result.getString(3);
+                var matricula=result.getString(4);
                 var ondontologo=new Odontologo(id,apellido,nombre,matricula);
                 ondontologos.add(ondontologo);
 
